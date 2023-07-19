@@ -7,10 +7,10 @@ interface CheckBox {
 
 const HeaderCheckbox = ({ checked, setChecked }: CheckBox): JSX.Element => {
   return (
-    <HeaderContainer>
+    <HeaderContainer checked={checked}>
       <h1>Our Pricing</h1>
       <div className="checkbox">
-        <p>Annualy</p>
+        <p className="annualy">Annualy</p>
         <div className="inputDiv">
           <input
             type="checkbox"
@@ -21,7 +21,7 @@ const HeaderCheckbox = ({ checked, setChecked }: CheckBox): JSX.Element => {
             }}
           />
         </div>
-        <p>Monthly</p>
+        <p className="monthly">Monthly</p>
       </div>
     </HeaderContainer>
   );
@@ -29,7 +29,7 @@ const HeaderCheckbox = ({ checked, setChecked }: CheckBox): JSX.Element => {
 
 export default HeaderCheckbox;
 
-const HeaderContainer = styled.div`
+const HeaderContainer = styled.div<{ checked: boolean }>`
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -54,11 +54,16 @@ const HeaderContainer = styled.div`
   }
 
   p {
-    font-size: 15px;
     line-height: 28px;
     color: #6e728e;
     mix-blend-mode: normal;
     opacity: 0.5;
+  }
+  .annualy {
+    font-size: ${(props) => (props.checked ? "18px" : "15px")};
+  }
+  .monthly {
+    font-size: ${(props) => (props.checked ? "15px" : "18px")};
   }
 
   .inputDiv {

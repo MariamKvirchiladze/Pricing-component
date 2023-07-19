@@ -4,6 +4,7 @@ import bgTop from "./assets/bg-top.svg";
 import bgBottom from "./assets/bg-bottom.svg";
 import { useState } from "react";
 import HeaderCheckbox from "./components/HeaderCheckbox";
+import CardTable from "./components/CardTable";
 
 function App() {
   const [checked, setChecked] = useState<boolean>(false);
@@ -12,6 +13,7 @@ function App() {
     <MainContainer>
       <GlobalStyles />
       <HeaderCheckbox checked={checked} setChecked={setChecked} />
+      <CardTable checked={checked} />
     </MainContainer>
   );
 }
